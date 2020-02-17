@@ -37,7 +37,8 @@ class Contact(BasePage):
         return self
 
     def get_member(self):
-        elemnet = self.driver.find_elements(By.CSS_SELECTOR, '.member_colRight_memberTable_td')
+        get_member_locator=(By.CSS_SELECTOR, '#member_list tr:nth-child(3) td:nth-child(2)')
+        return self.find_element(get_member_locator).get_attribute('title')
 
     def update_member(self):
         menu = self.driver.find_element(By.CSS_SELECTOR, 'td[title="张三"]')

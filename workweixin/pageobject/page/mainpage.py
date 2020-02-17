@@ -16,4 +16,4 @@ class Main(BasePage):
         # 显示等待
         # WebDriverWait(self.driver,10).until(expected_conditions.element_to_be_clickable(element))
         # self.driver.find_element(*element).click()
-        return Contact(reuse=True)
+        return Contact(reuse1=True)
