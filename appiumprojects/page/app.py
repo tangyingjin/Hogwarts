@@ -22,8 +22,9 @@ class App(BasePage):
             self._driver.implicitly_wait(20)
         else:
             print(self._driver)
+        # todo:这块不懂
             self._driver.start_activity(self._appPackage,self._appActivity)
-        #     todo:self._appPackage访问类变量
+        #todo:self._appPackage访问类变量
 
         # return self当前实例自身，可继续调用当前类的其他方法（return self来实现链式调用）
         return self

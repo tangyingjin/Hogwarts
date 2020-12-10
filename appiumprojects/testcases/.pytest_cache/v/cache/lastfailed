@@ -1,0 +1,4 @@
+{
+  "test_search.py::TestSearch::test_search_data[JD-JD-30]": true,
+  "test_search.py::TestSearch::test_search_data[alibaba-BABA-200]": true
+}
