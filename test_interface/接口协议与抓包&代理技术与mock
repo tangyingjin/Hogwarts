@@ -1,0 +1,125 @@
+1.postman调https接口
+2.TCP：打电话 UDP：发短信
+
+3.网络监听：tcpdump +wireShark
+
+tcpdump -i eth0 -w /home/hik/jina.pcap tcp port 8181
+-w file保存文件
+port 端口默认80
+-i 指定监听的网络接口
+-v 显示日志
+-Al A:以ASCII的方式显示数据包，抓取web数据时有用 l:使用标准格式进行输出
+
+
+4.代理proxy：什么是代理工具
+5.api和接口同个概念嘛？api是接口文档，也可以指函数
+
+
+三次握手：
+SYN Seq=0 客户端向服务端发请求
+SYN seq=0 Ack=1 服务端响应ack为1
+SYN seq=1 Ack=1 客户端再回应
+
+
+四次挥手：
+FIN，ACk
+ACk
+FIN ACk
+ACk
+
+
+http应用层是建立在tcp传输层之上
+
+6.curl http://www.baidu.com 使用curl命令发送请求
+
+通过参数指定wd的编码：
+curl -G url https://www.baidu.com --data-urlencode "wd:霍格沃兹测试学院" -H 'Connection: keep-alive' -H 'Cache-Control: max-age=0' -H 'Upgrade-Insecure-Requests: 1' -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3' -H 'Accept-Encoding: gzip, deflate, br' -H 'Accept-Language: zh-CN,zh;q=0.9,en;q=0.8' -H 'Cookie: BAIDUID=5403DAC6AEC8B48DCC6A3D45552B9CD6:FG=1; BIDUPSID=5403DAC6AEC8B48DCC6A3D45552B9CD6; PSTM=1568602233; BDUSS=BrMX5HN2l5NmtFLWdhU3ZHYThHakY3cm94UUZlR3l-TTU1My1leWpmNHJkS2hkRVFBQUFBJCQAAAAAAAAAAAEAAAD6VgShbmljZcLt6LQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACvngF0r54BdRj; _homeland_session=lIG%2F9zPjSHHWta%2BKXwOOry%2FOxa3NGGyPzoE0Eek8rAel8wmq4FAv0Sa1PQhR1I5MNTpopx3zCJeLykMFt6xGjAB66RZ5hhJOKMXEdIpbORyYYIENsEyciBeNCYkz7IKVAKWdhvF4NzH1BFxhHc35ONOm59%2F8%2FRJ0nfj4tXD97PoiS02Zpe4WDtZTZrg%2Fmm5BN%2BOnn0qHFA%2BmkndNQOLhIyLT3Tt8nVki0cg74IV5Mzo%2FSE28u2HS9IdkoiagIllYZehGJwiMDN7UH%2Fwc1jFc%2BJMp94Alu%2Fnxrg%3D%3D--8vazfTOh2Djn3G5e--f7J5EgYyZpIiw4UZYmtpOw%3D%3D; BD_UPN=123253; delPer=0; BD_CK_SAM=1; PSINO=2; H_PS_PSSID=1421_31170_21118_31187_30905_31051_30823_31085_26350; H_PS_645EC=ddce%2FJvbox9oZltdQxsz83h1tOXe35N1k0%2BsPVHJ9oX56aUNa87qp6eTeMSvp0CPlD5f; BDORZ=B490B5EBF6F3CD402E515D22BCDA1598; BDRCVFR[feWj1Vr5u3D]=I67x6TjHwwYf0; BDSVRTM=168' --compressed
+
+从开发者工具里面copy出来的原始curl命令：
+curl 'https://www.baidu.com/s?wd=%E9%9C%8D%E6%A0%BC%E6%B2%83%E5%85%B9&rsv_spt=1&rsv_iqid=0xe3c3bde1000242a0&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&tn=baiduhome_pg&rsv_enter=1&rsv_dl=ib&rsv_sug3=17&rsv_sug1=16&rsv_sug7=100' -H 'Connection: keep-alive' -H 'Cache-Control: max-age=0' -H 'Upgrade-Insecure-Requests: 1' -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.87 Safari/537.36' -H 'Sec-Fetch-Mode: navigate' -H 'Sec-Fetch-User: ?1' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3' -H 'Sec-Fetch-Site: none' -H 'Accept-Encoding: gzip, deflate, br' -H 'Accept-Language: zh-CN,zh;q=0.9' -H 'Cookie: BIDUPSID=5E267D4F8BC441F8CC3CD20415EA0CDF; PSTM=1577588842; BAIDUID=5E267D4F8BC441F8E00C9C5E0E1E09E5:SL=0:NR=50:FG=1; sug=3; sugstore=1; ORIGIN=0; bdime=0; BDUSS=TdmTWRtY1ZDamN6YkNIU01Fa2J-N29Mb3pGbFZ2YTR6bFlkeGxGeTlEbk0tM0plSVFBQUFBJCQAAAAAAAAAAAEAAADR35HKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMxuS17MbkteN; BD_UPN=12314753; BDORZ=B490B5EBF6F3CD402E515D22BCDA1598; delPer=0; BD_CK_SAM=1; PSINO=5; BD_HOME=1; shifen[95925442539_69924]=1585795261; shifen[128043363022_73504]=1585795272; BCLID=10482375167226910802; BDSFRCVID=cNKOJeC62wpyd16u7JwLu8Gn6bEUJOrTH6ao-BjJcTkV4KqZmS6dEG0PHM8g0KubI5lGogKKKgOTHI4F_2uxOjjg8UtVJeC6EG0Ptf8g0M5; H_BDCLCKID_SF=tRAOoC_2tCvVfb8k-4QEbbQH-UnLq5bJbgOZ0l8Kttn6bJcqhR_by6FB5H7x2jKH0CTTLnrmWIQHDn6uhfjd3q5D3PcatjbLa234KKJx2fKWeIJo5Dc6Dx4IhUJiBMnMBan7aCbIXKohJh7FM4tW3J0ZyxomtfQxtNRJ0DnjtpChbC_9DjK-j5jbepJf-K60aD7H0RbVKt5EDb-k-PI3-UCUXP6-35KHb5R80IDKbC3kfpRGeMJ_j4Dk3t69bq37JD6yslo_WJOxjULmynQAhqJBb-oxJpO7BRbMopvaKqIhDh3vbURvyP-g3-7AtU5dtjTO2bc_5KnlfMQ_bf--QfbQ0hOhqP-jBRIE3-oJqCKKbD0l3f; H_PS_PSSID=1456_21089_30825_31186_30910_30824_31086_22159; COOKIE_SESSION=137_4_5_4_3_10_0_0_3_5_1_0_2253779_0_0_102_1585380217_1585795272_1585795307%7C9%233089741_4_1585795170%7C2; BDRCVFR[feWj1Vr5u3D]=mk3SLVN4HKm; BDSVRTM=0; H_PS_645EC=96cfgiMFi0tW7zYzqhFzBa%2FbZ4etHPkq6IPm9zoDN3GXZoYX%2F2d383kdxzifiAgiHvNY' --compressed
+
+
+
+
+
+mock服务器
+
+7.session和cookie、token的区别：
+session是个特殊的cookie，用户标识，服务器存着session,cookie是客户端；用户名和密码登录成功后，服务端会生成一个凭证（token），这个凭证是有效期的。下次该用户登录带上这个token,服务端验证这个token就行了。access_token的有效期通过返回的expires_in来表达，正常情况下是2小时。
+session一系列过程。
+http：无状态
+token:用户请求时附带的请求字段，用于验证身份与权限
+
+
+
+8.curl --help帮助文档保存到本地：curl --help > F://测开课程//curl_help.doc
+curl https://www.baidu.com -o  F://测开课程//baidu.html
+curl  -s https://www.baidu.com -o   F://测开课程//baidu1.html
+-s:静默输出，关闭一些提示输出
+-G:将参数携带在url里边;上面命令会发出一个 GET 请求
+--data-urlencode:将参数进行编码
+-o:将输入内容报错到本地
+-v:打印详细发送的日志
+-d:发送post请求时，携带的数据体
+-i:参数打印出服务器回应的 HTTP 标头;上面命令收到服务器回应后，先输出服务器回应的标头，然后空一行，再输出网页的源码
+-I:参数向服务器发出 HEAD 请求，然会将服务器返回的 HTTP 标头打印出来
+curl使用：
+https://home.testing-studio.com/t/topic/1065
+
+
+9.nc telnet模拟发送请求：nc www.baidu.com 80 -v    curl  "http://www.baidu.com" -v -I
+10.telnet www.baidu.com 80
+   GET / HTTP/1.1
+   HOST:www.baidu.com
+11.win10的cmd中显示：telnet不是内部或外部命令也不是可运行的程序或批处理？电脑上的telnet功能没开，控制面板-程序-启动或关闭Windows功能，找到“Telnet客户端”，打上对勾
+
+
+12.curl练习：
+1.用curl发送一个header中携带user-agent:XXX的头信息
+curl -I -H 'User-Agent:Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.87 Safari/537.36' https://www.baidu.com  -H对应一个头信息
+2.向雪球发起一个股票搜索
+curl -G 'https://xueqiu.com/stock/search.json' --data-urlencode "code=阿里巴巴" --data-urlencode "size=3" --data-urlencode "page=1"
+
+
+
+13.get和post的区别
+发送get请求：curl -s 'http://127.0.0.1:5000/request?a=1&b=2' -v &> F://测开课程//get
+发送post请求：curl -s 'http://127.0.0.1:5000/request?a=1&b=2' -d "c=3&d=4" -v &>F://测开课程//post
+todo:注意：-s后面一定得加空格；-d是发送post请求的数据体；&啥意思,忘了
+
+14.经典面试题：
+1.get和post区别
+2.session和cookie区别
+3.打开一个网站发生了什么事情（浏览器层：cookie、js、css、界面渲染与交互；网络层：浏览器发起网络请求，服务器返回响应）
+
+15.我们使用抓包tcpdump只能抓到tcp协议的报文，而要抓http/https包，则需要代理工具；和对应的证书凭证。因为https包是加密的。
+16.反向代理nginx：反向代理服务器架设在服务器端，通过缓冲经常被请求的页面来缓解服务器的工作量，将客户机请求转发给内部网络上的目标服务器；并将从服务器上得到的结果返回给Internet上请求连接的客户端，此时代理服务器与目标主机一起对外表现为一个服务器
+
+17.charles代理工具，如何使用charles抓取https包？
+1.官网下载charles
+2.本地安装后，proxy setting设置端口
+3.ssl proxying setting 设置host和port  选择Proxy | Proxy Settings，弹出proxy设置选项卡，勾选Enable SSL Proxying，在Location部份选择add，按如下图添加，抓取任意站点、任一端口的数据。
+4.help -ssl proxing -root 安装证书
+5.谷歌浏览器配置代理，设置-高级-打开代理设置-连接-局域网设置-代理服务器
+6.至此，抓pc端的https包就可以了；如果把浏览器的代理服务器给关了，也会抓不到https包
+
+
+18.手机端配置代理，抓包
+todo：手机端配置代理，抓包未操作
+
+19.如何用预发布环境测试上线环境？fake用预发布环境代替线上环境  mock remote(比如底层接口没好，remote到另一个服务上)
+20.mock local
+
+
+
+
+
+
+
+
+
+
+
+
+
+

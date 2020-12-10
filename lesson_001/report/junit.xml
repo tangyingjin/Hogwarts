@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="2" hostname="NB-HZ20124399" name="pytest" skipped="0" tests="8" time="0.367" timestamp="2019-12-23T20:07:44.071141"><testcase classname="unit.homework" file="unit\homework.py" line="4" name="test_div_case01[a-b-None]" time="0.010"><failure message="TypeError: unsupported operand type(s) for /: &apos;str&apos; and &apos;str&apos;">number1 = &apos;a&apos;, number2 = &apos;b&apos;, excepection = None
+
+    @pytest.mark.parametrize(&quot;number1,number2,excepection&quot;, {
+        (10, 2, 5),
+        (10000, 1, 10000),
+        (10, 3, 3.3333333333333335),
+        (10.0, 5, 2.0),
+        (9, -1, -9),
+        (&quot;a&quot;, &quot;b&quot;, None),
+        (0, 1, 0),
+    })
+    def test_div_case01(number1, number2, excepection):
+&gt;       assert div(number1, number2) == excepection
+
+unit\homework.py:15: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+a = &apos;a&apos;, b = &apos;b&apos;
+
+    def div(a, b):
+&gt;       return a/b
+E       TypeError: unsupported operand type(s) for /: &apos;str&apos; and &apos;str&apos;
+
+unit\div.py:2: TypeError</failure></testcase><testcase classname="unit.homework" file="unit\homework.py" line="4" name="test_div_case01[10000-1-10000]" time="0.005"></testcase><testcase classname="unit.homework" file="unit\homework.py" line="4" name="test_div_case01[0-1-0]" time="0.004"></testcase><testcase classname="unit.homework" file="unit\homework.py" line="4" name="test_div_case01[10-3-3.3333333333333335]" time="0.007"></testcase><testcase classname="unit.homework" file="unit\homework.py" line="4" name="test_div_case01[10-2-5]" time="0.007"></testcase><testcase classname="unit.homework" file="unit\homework.py" line="4" name="test_div_case01[9--1--9]" time="0.007"></testcase><testcase classname="unit.homework" file="unit\homework.py" line="4" name="test_div_case01[10.0-5-2.0]" time="0.005"></testcase><testcase classname="unit.homework" file="unit\homework.py" line="17" name="test_div_case02[1-0-ZeroDivisionError]" time="0.007"><failure message="ZeroDivisionError: division by zero">num1 = 1, num2 = 0, excepection = &lt;class &apos;ZeroDivisionError&apos;&gt;
+
+    @pytest.mark.parametrize(&apos;num1,num2,excepection&apos;, {
+        (1, 0, ZeroDivisionError)
+    })
+    def test_div_case02(num1, num2, excepection):
+&gt;       assert div(num1, num2) == excepection
+
+unit\homework.py:22: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+a = 1, b = 0
+
+    def div(a, b):
+&gt;       return a/b
+E       ZeroDivisionError: division by zero
+
+unit\div.py:2: ZeroDivisionError</failure></testcase></testsuite></testsuites>

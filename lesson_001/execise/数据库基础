@@ -1,0 +1,12 @@
+1.数据库分类：
+关系型数据库：MySQL、Oracle
+Nosql:MangDB、Redis、Hbase、
+2.phpMyadmin
+3.命令行连接mysql: mysql -h(host) shell.testing-studio.com -P(Port) 3306(默认端口) -u(username) hogwarts  -p(password)hogwarts -D databses -e "select * from 表名"
+4.sql命令：status;
+5.常用的mysql客户端工具：mysqlshell、mysql workbench、phpmyadmin网页、navicat
+6.使用mysql shell统计salaries表中薪资最高的100人的平均工资
+(SELECT AVG(salary) FROM ( SELECT * from `salaries` ORDER BY salary desc LIMIT 100 offset 0 ) as c(别名))
+mysql -h docker.testing-studio.com -P 3306 -u hogwarts -phogwarts -D employees -e "select *  from salaries order by salary  desc  limit 100;"  -s | awk '{sum += $2;}END { print "sum = " sum; printf "average =%.4f" ,sum/NR}'
+triggers触发器
+mysql -h docker.testing-studio.com -P 3306 -u hogwarts -phogwarts -e "select * from salaries limit 10;" -s | awk '{print $2}'

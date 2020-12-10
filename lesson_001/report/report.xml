@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="9" hostname="NB-HZ20124399" name="pytest" skipped="0" tests="13" time="0.823" timestamp="2019-12-24T19:20:44.186008"><testcase classname="execise.test_exceise02" file="execise\test_exceise02.py" line="5" name="test_case01" time="0.002"><failure message="TypeError: unsupported operand type(s) for /: &apos;str&apos; and &apos;str&apos;">@pytest.mark.test
+    def test_case01():
+        assert fun(10,2)==5
+&gt;       assert fun(&apos;a&apos;,&apos;b&apos;)==None
+
+execise\test_exceise02.py:9: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+a = &apos;a&apos;, b = &apos;b&apos;
+
+    def fun(a, b):
+&gt;       return a / b
+E       TypeError: unsupported operand type(s) for /: &apos;str&apos; and &apos;str&apos;
+
+execise\test_exceise02.py:4: TypeError</failure></testcase><testcase classname="execise.test_exceise02" file="execise\test_exceise02.py" line="10" name="test_case02" time="0.001"><failure message="assert 3.3333333333333335 == 3.3333
+ +  where 3.3333333333333335 = fun(10, 3)">@pytest.mark.test1
+    def test_case02():
+&gt;       assert fun(10,3)==3.3333
+E       assert 3.3333333333333335 == 3.3333
+E        +  where 3.3333333333333335 = fun(10, 3)
+
+execise\test_exceise02.py:13: AssertionError</failure></testcase><testcase classname="execise.test_exceise02" file="execise\test_exceise02.py" line="14" name="test_case03" time="0.000"></testcase><testcase classname="unit.test_demo.TestDemo" file="unit\test_demo.py" line="16" name="test_demo" time="0.001"><failure message="TypeError: assertEqual() missing 1 required positional argument: &apos;second&apos;">self = &lt;unit.test_demo.TestDemo testMethod=test_demo&gt;
+
+    def test_demo(self):
+&gt;       self.assertEqual(False)
+E       TypeError: assertEqual() missing 1 required positional argument: &apos;second&apos;
+
+unit\test_demo.py:18: TypeError</failure><system-out>setupclass
+setup
+</system-out></testcase><testcase classname="unit.test_demo.TestDemo" file="unit\test_demo.py" line="12" name="test_sum" time="0.001"><failure message="AssertionError: 4 != 3 : x=3  expection=3">self = &lt;unit.test_demo.TestDemo testMethod=test_sum&gt;
+
+    def test_sum(self):
+        x=1+2
+        print(x)
+&gt;       self.assertEqual(4,x,f&apos;x={x}  expection=3&apos;)
+E       AssertionError: 4 != 3 : x=3  expection=3
+
+unit\test_demo.py:16: AssertionError</failure><system-out>setup
+3
+teardownclass
+</system-out></testcase><testcase classname="unit.test_div" file="unit\test_div.py" line="4" name="test_div_int" time="0.000"></testcase><testcase classname="unit.test_div" file="unit\test_div.py" line="11" name="test_div_float" time="0.001"><failure message="assert 3.3333333333333335 == 333333
+ +  where 3.3333333333333335 = &lt;function div at 0x0000023D58786310&gt;(10, 3)
+ +    where &lt;function div at 0x0000023D58786310&gt; = div.div">def test_div_float():
+&gt;       assert div.div(10, 3) == 333333
+E       assert 3.3333333333333335 == 333333
+E        +  where 3.3333333333333335 = &lt;function div at 0x0000023D58786310&gt;(10, 3)
+E        +    where &lt;function div at 0x0000023D58786310&gt; = div.div
+
+unit\test_div.py:13: AssertionError</failure></testcase><testcase classname="unit.test_div" file="unit\test_div.py" line="16" name="test_div_expection" time="0.001"><failure message="TypeError: unsupported operand type(s) for /: &apos;int&apos; and &apos;str&apos;">def test_div_expection():
+&gt;       assert div.div(10, &apos;a&apos;)
+
+unit\test_div.py:18: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+a = 10, b = &apos;a&apos;
+
+    def div(a, b):
+&gt;       return a/b
+E       TypeError: unsupported operand type(s) for /: &apos;int&apos; and &apos;str&apos;
+
+unit\div.py:2: TypeError</failure></testcase><testcase classname="unit.test_div" file="unit\test_div.py" line="20" name="test_div_zero" time="0.000"><failure message="ZeroDivisionError: division by zero">@pytest.mark.expection
+    def test_div_zero():
+&gt;       assert div.div(10, 0) == None
+
+unit\test_div.py:23: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+a = 10, b = 0
+
+    def div(a, b):
+&gt;       return a/b
+E       ZeroDivisionError: division by zero
+
+unit\div.py:2: ZeroDivisionError</failure></testcase><testcase classname="unit.test_div" file="unit\test_div.py" line="25" name="test_div_int_pram[10-2-5]" time="0.002"></testcase><testcase classname="unit.test_div" file="unit\test_div.py" line="25" name="test_div_int_pram[100000000-1-1000000]" time="0.002"><failure message="assert 100000000.0 == 1000000
+ +  where 100000000.0 = &lt;function div at 0x0000023D58786310&gt;(100000000, 1)
+ +    where &lt;function div at 0x0000023D58786310&gt; = div.div">number1 = 100000000, number2 = 1, excepection = 1000000
+
+    @pytest.mark.happy
+    @pytest.mark.parametrize(&quot;number1,number2,excepection&quot;, {
+        (10, 2, 5),
+        (10, 5, 2),
+        (100000000, 1, 1000000)
+    })
+    # parametrize参数化
+    
+    def test_div_int_pram(number1, number2, excepection):
+&gt;       assert div.div(number1, number2) == excepection
+E       assert 100000000.0 == 1000000
+E        +  where 100000000.0 = &lt;function div at 0x0000023D58786310&gt;(100000000, 1)
+E        +    where &lt;function div at 0x0000023D58786310&gt; = div.div
+
+unit\test_div.py:35: AssertionError</failure></testcase><testcase classname="unit.test_div" file="unit\test_div.py" line="25" name="test_div_int_pram[10-5-2]" time="0.000"></testcase><testcase classname="unit.test_pytest" file="unit\test_pytest.py" line="4" name="test_answer" time="0.001"><failure message="assert 4 == 5
+ +  where 4 = inc(3)">def test_answer():
+&gt;       assert inc(3)==5
+E       assert 4 == 5
+E        +  where 4 = inc(3)
+
+unit\test_pytest.py:6: AssertionError</failure></testcase></testsuite></testsuites>

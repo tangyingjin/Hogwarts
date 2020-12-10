@@ -1,0 +1,13 @@
+1.企业微信的添加成员，添加成功弹窗如何捕获
+2.python的logging模块
+3.PyHamcrest断言，是assert加强版
+4.文件上传input、非文件input、弹窗处理
+5.app测试时，页面上有返回键，点击返回键的方法是封装在BasePage中，还是每个页面单独写？
+
+'''一个页面就是一个page，一个page可以返回其他page，也可以返回断言的数据
+变量驼峰命名
+网页的一级目录使用一个PO
+base_page通用的公共方法,一般放与driver相关的内容；util_page工具类
+方法需要在运行过程中的某些值，同时需要返回自身或者下一界面，可以使用return 返回多个值
+尽量声明隐式变量：self._driver
+driver:WebDriver声明类型'''
